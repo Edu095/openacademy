@@ -15,7 +15,7 @@
                     <div class="page">
                         <h2 t-field="doc.name"/>
                         <p>From <span t-field="doc.start_date"/> to <span t-field="doc.end_date"/></p>
-                        <h3>Attendees:</h3>
+                        <h3>Attendees: </h3>
                         <ul>
                             <t t-foreach="doc.attendee_ids" t-as="attendee">
                                 <li><span t-field="attendee.name"/></li>

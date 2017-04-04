@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../.idea/custom-addons.iml" filepath="$PROJECT_DIR$/../.idea/custom-addons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../oepetstore/.idea/oepetstore.iml" filepath="$PROJECT_DIR$/../oepetstore/.idea/oepetstore.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/openacademy.iml" filepath="$PROJECT_DIR$/.idea/openacademy.iml" />
     </modules>

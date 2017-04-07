@@ -1,14 +1,32 @@
 <odoo>
     <data>
-        <!-- <template id="listing"> -->
-        <!--   <ul> -->
-        <!--     <li t-foreach="objects" t-as="object"> -->
-        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
-        <!--         <t t-esc="object.display_name"/> -->
-        <!--       </a> -->
-        <!--     </li> -->
-        <!--   </ul> -->
-        <!-- </template> -->
+        <template id="index">
+            <t t-call="website.layout">
+                <t t-set="title">Openacademy</t>
+                <div class="oe_structure"/>
+                <div class="oe_structure">
+                    <div class="container">
+                        <p>
+                            <t t-esc="helloworld"/>
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="listing">
+            <t t-call="website.layout">
+                <t t-set="title">Openacademy</t>
+                <div class="oe_structure"/>
+                <div class="oe_structure">
+                    <ul>
+                        <p>
+                            <t t-esc="root"/>
+                        </p>
+                    </ul>
+                </div>
+            </t>
+        </template>
         <!-- <template id="object"> -->
         <!--   <h1><t t-esc="object.display_name"/></h1> -->
         <!--   <dl> -->

@@ -7,20 +7,21 @@ class Openacademy(http.Controller):
     def index(self, **kw):
         return http.request.render('openacademy.index', {'helloworld': 'Hello World'})
 
-    @http.route('/openacademy/openacademy/users/', auth='public', website=True)
-    def list(self, **kw):
-        return http.request.render('openacademy.listing', {
-            'root': 'users page'
+    @http.route('/openacademy/openacademy/courses/', auth='public', website=True)
+    def course(self, **kw):
+        courses = http.request.env['openacademy.course']
+        return http.request.render('openacademy.course', {
+            'course': courses.search([])
         })
 
+    @http.route('/openacademy/openacademy/<model("openacademy.course"):course>/', auth='public', website=True)
+    def info(self, course):
+        return http.request.render('openacademy.info', {
+            'course': course
+        })
 
-class Restrict(Openacademy):
-    @http.route('/openacademy/openacademy/users/', auth='user')
-    def list(self):
-        return super(Restrict, self).list()
-
-#     @http.route('/openacademy/openacademy/objects/<model("openacademy.openacademy"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('openacademy.object', {
-#             'object': obj
-#         })
+#
+# class Restrict(Openacademy):
+#     @http.route('/openacademy/openacademy/courses/', auth='user')
+#     def list(self):
+#         return super(Restrict, self).list()

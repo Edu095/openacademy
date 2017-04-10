@@ -1,10 +1,10 @@
 <odoo>
     <data>
-        <!--<template id="mystyle" name="My style" inherit_id="website.assets_frontend">
+        <template id="mystyle" name="My style" inherit_id="website.assets_frontend">
             <xpath expr="link[last()]" position="after">
                 <link href="/openacademy/static/src/css/webview.css" rel="stylesheet" type="text/css"/>
             </xpath>
-        </template>-->
+        </template>
 
         <template id="index">
             <t t-call="website.layout">
@@ -26,15 +26,21 @@
                 <div class="oe_structure"/>
                 <div class="oe_structure">
                     <div class="container">
-                        <t t-foreach="course" t-as="cour">
+                        <h2 style="text-align: center;">Courses</h2>
+                        <div class="row" t-foreach="course" t-as="cour">
                             <div class="col-md-4 col-xs-12">
-                                <h1>
-                                    <a t-attf-href="/openacademy/openacademy/{{ slug(cour) }}">
-                                        <t t-esc="cour.name"/>
-                                    </a>
-                                </h1>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading text-center">
+                                        <h4 class="o_default_snippet_text">
+                                            <a t-attf-href="/openacademy/openacademy/{{ slug(cour) }}"
+                                               class="courseTitle">
+                                                <t t-esc="cour.name"/>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
                             </div>
-                        </t>
+                        </div>
                     </div>
                 </div>
             </t>
@@ -46,13 +52,27 @@
                 <div class="oe_structure"/>
                 <div class="oe_structure">
                     <div class="container">
-                        <h3>
-                            <t t-esc="course.name"/>
-                        </h3>
-                        <p>
-                            <t t-esc="course.description"/>
-                        </p>
+                        <h3 t-esc="course.name"/>
+                        <p t-esc="course.description"/>
                     </div>
+                    <t t-if="course.session_ids">
+                        <div class="container">
+                            <h4>Sessions</h4>
+                            <table class="table-fill">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Instructor</th>
+                                </tr>
+                                <tr t-foreach="course.session_ids" t-as="session">
+                                    <td t-esc="session.name"/>
+                                    <td t-if="session.instructor_id.name">
+                                        <t t-esc="session.instructor_id.name"/>
+                                    </td>
+                                    <td t-else="">---</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
                 </div>
             </t>
         </template>

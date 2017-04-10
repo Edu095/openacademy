@@ -20,8 +20,7 @@ class Openacademy(http.Controller):
             'course': course
         })
 
-#
 # class Restrict(Openacademy):
 #     @http.route('/openacademy/openacademy/courses/', auth='user')
-#     def list(self):
+#     def course(self):
 #         return super(Restrict, self).list()
